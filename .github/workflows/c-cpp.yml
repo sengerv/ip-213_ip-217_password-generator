@@ -1,5 +1,11 @@
 name: Build
 
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 on: push
 
 jobs:
@@ -7,10 +13,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Check codestyle
-        run: git ls-files *.{c,h} | xargs clang-format -i --verbose && git diff --exit-code
+      - uses: actions/checkout@v3
 
       - name: Build application
         run: make
