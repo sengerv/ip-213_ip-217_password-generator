@@ -30,7 +30,7 @@ int main(int argc, char **argv){
 		f2 = true;
 		f3 = true;
 		f4 = true;
-		cout << "Enter \"pwdgen.exe -h \" to see info.." << endl;
+		cout << "Enter \"./pwdgen -h \" to see info.." << endl;
   	}
   	else 
 	{
@@ -49,7 +49,7 @@ int main(int argc, char **argv){
 
 	if (args.count("h")) {
 		cout << options.help() << endl;
-		cout << "example: pwdgen.exe -u -n 10" << endl;
+		cout << "example: ./pwdgen -u -n 10" << endl;
 		exit(0);
 	}
 }
