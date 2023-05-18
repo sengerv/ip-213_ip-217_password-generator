@@ -14,8 +14,8 @@ int main(int argc, char **argv){
 		("u,uppercase", "Incldue uppercase letters")
 		("d,digit", "Include digit")
 		("s,special", "Include special simbols")
-		("c,count", "Count password to generate", cxxopts::value<size_t>()->default_value("1"))
-		("n,lenght", "Password lenght", cxxopts::value<size_t>()->default_value("10"))
+		("c,count", "Count password to generate", value<size_t>()->default_value("1"))
+		("n,lenght", "Password lenght", value<size_t>()->default_value("8"))
 		("h,help", "Print help directory")
 		;
 
@@ -41,7 +41,11 @@ int main(int argc, char **argv){
   	}
 
 	PWD_Generator gener;
-	cout << gener.generate(6, f1, f2, f3, f4) << endl;
+
+	for (size_t i = 0; i < args["c"].as<size_t>(); i++) {
+		cout << gener.generate(args["n"].as<size_t>(), f1, f2, f3, f4) << endl;
+	}
+	
 
 	if (args.count("h")) {
 		cout << options.help() << endl;
